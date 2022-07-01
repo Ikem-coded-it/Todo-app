@@ -1,0 +1,35 @@
+###
+// GET ALL TODO
+GET http://localhost:3000/todo HTTP/1.1     
+
+###
+// GET SINGLE TODO
+GET http://localhost:3000/todo/62bec23775a85c44900a6830 HTTP/1.1
+
+###
+// CREATE TODO
+POST http://localhost:3000/todo/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 6,
+    "title": "Church",
+    "description": "Worship God",
+    "timestamps": "4pm"
+}
+
+###
+// UPDATE TODO
+PUT http://localhost:3000/todo/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "id": 6,
+    "title": "School",
+    "description": "Submit classwork",
+    "timestamps": "1pm"
+}
+
+###
+// DELETE TODO
+DELETE http://localhost:3000/todo/ HTTP/1.1

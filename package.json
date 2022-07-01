@@ -1,0 +1,30 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "A todo app that works with a Node JS express server connected to MongoDB and performs CRUD operations.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "dev": "nodemon ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ikem-coded-it/Todo-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ikem-coded-it/Todo-app/issues"
+  },
+  "homepage": "https://github.com/Ikem-coded-it/Todo-app#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mongoose": "^6.4.1",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "dotenv": "^16.0.1",
+    "nodemon": "^2.0.18"
+  }
+}
