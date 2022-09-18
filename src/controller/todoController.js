@@ -1,27 +1,30 @@
 const Todo = require('../model/todo'); 
 
-// Add todo task
-exports.addTodo = async (req, res) => {
-    try {
-        let todo = await req.body;
-        let added = await Todo.create(todo);
-        if (!added) return res.status(400).json({
-            success: false,
-            message: 'Failed to add todo',
-        });
-        return res.status(201).json({
-            success: true,
-            message: 'Todo added',
-            todo: added
-    });
-    } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: 'Internal server error',
-            error: error.message,
-        });
-    };
+// render new todo page
+exports.newTodo = async (req, res) => {
+    res.render("todo/new", { todo: new Todo() })
 };
+
+
+// Add todo task
+exports.createTodo = async (req, res) => {
+    const todo = await new Todo({
+        title: req.body.title,
+        description: req.body.description,
+    })
+
+    try {
+        const newTodo = await todo.save()
+        res.redirect(`/`)
+
+    } catch (error) {
+        if (error) {
+            res.redirect("/", {
+                errorMessage: "Failed to add todo."
+            })
+        }
+    }
+}
 
 
 // Update todo task
@@ -56,46 +59,32 @@ exports.deleteTodo = async (req, res) => {
         let id = {_id: req.params.id};
         let deleted = await Todo.findOneAndDelete(id);
 
-        if (!deleted) return res.status(400).json({
-            success: false,
-            message: "Todo not deleted",
-        });
-        return res.status(200).json({
-            success: true,
-            message: "Todo deleted",
-        });
+        res.redirect("/")
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Internal server error",
-            error: error.message,
-        });
-    };
+        res.redirect("/", {
+            errorMessage: "Failed to delete todo"
+        })
+    }
 };
 
 
 // Retrieve all todo tasks
 exports.getAllTodos = async (req, res) => {
+    let searchOptions = {}
+    if(req.query.title != null && req.query.title != '') {
+        searchOptions.title = new RegExp(req.query.title, 'i')
+    }
+    
     try {
-        let todos = await Todo.find();
-        if (todos.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: 'No todos were found'
-            });
-        };
-        res.status(200).json({
-            success: true,
-            message: "Retrieved all todos",
-            todos,
-            count: todos.length,
-        });
+        let todos = await Todo.find(searchOptions);
+        res.render("index", {
+            todos: todos,
+            searchOptions: req.query
+        }) 
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Internal server error",
-            error: error.message,
-        });
+        res.redirect("/", {
+            errorMessage: "Todo not found"
+        })
     }
 };
 
@@ -105,19 +94,13 @@ exports.getTodo = async (req, res) => {
     try {
         let id = {_id: req.params.id};
         let todo = await Todo.findOne(id);
-        if(!todo) return res.status(404).json({
-            success: false,
-            message: "Todo not found",
-        });
-        res.status(200).json({
-            message: "Todo found",
-            todo,
-        });
+         
+        res.render("todo/show", {
+            todo: todo
+        })
     } catch (error) {
-        res.status(404).json({
-            success: false,
-            message: 'Internal server error',
-            error: error.message,
-        });
+        res.redirect("/", {
+            errorMessage: "Todo not found"
+        })
     }
 };

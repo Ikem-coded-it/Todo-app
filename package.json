@@ -19,7 +19,11 @@
   },
   "homepage": "https://github.com/Ikem-coded-it/Todo-app#readme",
   "dependencies": {
+    "body-parser": "^1.20.0",
+    "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1",
+    "method-override": "^3.0.0",
     "mongoose": "^6.4.1",
     "uuid": "^8.3.2"
   },
