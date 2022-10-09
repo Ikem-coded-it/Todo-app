@@ -1,5 +1,7 @@
-<h2>New Todo</h2>
+<h2 class="page-header">New Todo</h2>
 <form action="/todo" method="POST">
-    <%- include("./_form_fields") %>  
-    <button type="submit">Add</button>
+    <div class="form-section">
+        <%- include("./_form_fields") %>  
+        <button class="btn-primary" type="submit">Add</button>
+    </div>
 </form>

@@ -1,0 +1,23 @@
+@import 'variables.css';
+
+.form-section {
+    display: block;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 2rem;
+
+}
+
+.form-input {
+    padding: 15px;
+    border: 2px solid var(--color-app-font);
+    border-radius: 1rem;
+    background-color: azure;
+    color: var(--color-app-font);
+    font-family: "Mogen";
+    font-size: 15px;
+}
+
+.delete-form {
+    display: inline;
+}

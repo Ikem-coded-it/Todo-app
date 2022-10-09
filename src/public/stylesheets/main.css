@@ -1,0 +1,53 @@
+@import 'shared/fonts.css';
+@import 'shared/form.css';
+@import 'shared/button.css';
+@import 'shared/variables.css';
+
+:root {
+    font-family: 'Mogen';
+    font-size: 20px;
+    color: hsl(96, 100%, 48%);
+    background-color: hsl(56, 100%, 38%);
+    margin: 0;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.page-header {
+    display: block;
+    color: var(--color-app-font);
+    font-weight: bold;
+    font-size: 50px;
+    text-align: center;
+} 
+
+div a {
+    display: inline;
+}
+
+a {
+    border: 1px solid var(--color-app-font);
+    text-decoration: none;
+}
+
+.todo-section {
+    text-align: center;
+    background-color: antiquewhite;
+    border: 1px solid var(--color-app-font);
+    border-radius: 1rem;
+}
+
+.todo-row {
+    margin: 10px;
+    padding-bottom: .5rem;
+    border-bottom: 2px solid black;
+}
+
+.todo-row li {
+    display: inline;
+    list-style: none;
+    color: var(--color-app-font);
+    font-family: "Mogen", 'Times New Roman', sans-serif;
+    font-size: 30px;
+    margin-bottom: 15px;
+}

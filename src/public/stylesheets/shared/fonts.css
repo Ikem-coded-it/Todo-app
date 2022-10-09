@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Mogen';
+    src: url('/fonts/MogenBold.woff2') format('woff2'),
+        url('/fonts/MogenBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mogen';
+    src: url('/fonts/MogenBold.woff2') format('woff2'),
+        url('/fonts/MogenBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mogen';
+    src: url('/fonts/MogenBold.woff2') format('woff2'),
+        url('/fonts/MogenBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

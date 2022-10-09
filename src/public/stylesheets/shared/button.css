@@ -1,0 +1,32 @@
+@import 'variables.css';
+
+.btn-primary {
+    padding: 15px;
+    border-radius: 1rem;
+    background-color: azure;
+    color: var(--color-app-font);
+    font-size: 18px;
+    font-family: "Mogen", courier, san-serif;
+    margin: 1rem;
+}
+
+.btn-danger {
+    display: inline;
+    padding: 15px;
+    border-radius: 1rem;
+    background-color: rgb(247, 3, 3);
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    font-family: "Mogen", courier, san-serif;
+}
+
+.btn-primary:hover {
+    background-color: bisque;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: rgb(247, 111, 0);
+    cursor: pointer;
+}
+

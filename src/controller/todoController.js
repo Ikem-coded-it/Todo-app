@@ -18,11 +18,7 @@ exports.createTodo = async (req, res) => {
         res.redirect(`/`)
 
     } catch (error) {
-        if (error) {
-            res.redirect("/", {
-                errorMessage: "Failed to add todo."
-            })
-        }
+        res.redirect("/")
     }
 }
 
@@ -61,9 +57,7 @@ exports.deleteTodo = async (req, res) => {
 
         res.redirect("/")
     } catch (error) {
-        res.redirect("/", {
-            errorMessage: "Failed to delete todo"
-        })
+        res.redirect('/')
     }
 };
 
@@ -82,9 +76,7 @@ exports.getAllTodos = async (req, res) => {
             searchOptions: req.query
         }) 
     } catch (error) {
-        res.redirect("/", {
-            errorMessage: "Todo not found"
-        })
+        res.redirect('/')
     }
 };
 
@@ -99,8 +91,6 @@ exports.getTodo = async (req, res) => {
             todo: todo
         })
     } catch (error) {
-        res.redirect("/", {
-            errorMessage: "Todo not found"
-        })
+        res.redirect('/')
     }
 };

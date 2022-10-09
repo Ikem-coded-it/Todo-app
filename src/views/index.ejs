@@ -1,18 +1,20 @@
-<h2>Welcome</h2>
-<form action="/" method="GET">
-    <input type="text" name="title" placeholder="todo title" value="<%= searchOptions.title %>">
-    <button type="submit">Search</button>
-</form>
-<br>
-<%- include("./partials/errorMessage.ejs") %>
-<br>
-<div>
+<div class="page-header"><h2>Welcome</h2></div>
+<div class="form-section">
+    <form action="/" method="GET">
+        <input type="text" name="title" class="form-input" value="<%= searchOptions.title %>">
+        <button class="btn-primary" type="submit">Search</button>
+    </form>
+</div>
+<div class="error-message">
+    <%- include("./partials/errorMessage.ejs") %>
+</div>
+<a class="btn-primary" href="/todo/new">Add todo</a>
+<div class="todo-section">
     <% todos.forEach(todo => { %>
-        <h4>
-            <li><%= todo.title %> </li>
-            <a href="/todo/<%= todo.id %>">View</a>
-            <%- include("./partials/deleteForm", {url: `/todo/${todo.id}`}) %>  
-        </h4>
+        <div class="todo-row">
+            <li><%= todo.title %></li>
+            <a class="btn-primary" href="/todo/<%= todo.id %>">View</a>
+            <%- include("./partials/deleteForm", {url: `/todo/${todo.id}`}) %>
+        </div>
     <% }) %>
 </div>
-<a href="/todo/new">Add todo</a>

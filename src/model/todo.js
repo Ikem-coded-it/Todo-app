@@ -9,8 +9,7 @@ const todoSchema = mongoose.Schema(
             maxlength: 20,
         },
         description: {
-            type: String,
-            required: true,
+            type: String
         }
     }, 
     { timestamps: true }
