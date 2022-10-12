@@ -1,2 +1,8 @@
 # Todo-app
-A todo app that works with a Node JS express server connected to MongoDB and performs CRUD operations.
+This is my simple todo/notes app.
+Nodejs Express handling the backend and for the frontend i used EJS templating and CSS.
+
+## Instructions for use
+* Clone the repository.
+* Set environment variables for `PORT` and `MONGO_DB_LOCAL`.
+* Use `npm run dev`to start up the server on your local machines.

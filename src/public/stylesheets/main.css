@@ -51,3 +51,21 @@ a {
     font-size: 30px;
     margin-bottom: 15px;
 }
+
+.todo-title {
+    background-color: bisque;
+    margin: 0 5rem;
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin-bottom: 4rem;
+}
+
+.todo-description {
+    background-color: bisque;
+    color: var(--color-app-font);
+    border: 2px solid black;
+    border-radius: 1rem;
+    margin: 0 3rem;
+    padding: 1.5rem;
+    text-align: center;
+}

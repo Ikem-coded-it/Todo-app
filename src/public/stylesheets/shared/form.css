@@ -1,5 +1,12 @@
 @import 'variables.css';
 
+.new-todo-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .form-section {
     display: block;
     padding: 0;
@@ -16,6 +23,17 @@
     color: var(--color-app-font);
     font-family: "Mogen";
     font-size: 15px;
+}
+
+.form-item {
+    margin: 15px;
+}
+
+.form-label {
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--color-app-font);
 }
 
 .delete-form {

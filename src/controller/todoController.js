@@ -23,28 +23,28 @@ exports.createTodo = async (req, res) => {
 }
 
 
-// Update todo task
+// render todo edit page
+exports.editTodo = async(req, res) => {
+    const todo = await Todo.findById(req.params.id)
+    try {
+        res.render("todo/edit", { todo: todo })
+    } catch (error) {
+        console.log(error);
+        res.redirect("/")
+    }
+}
+
+
+// Edit todo task
 exports.updateTodo = async (req, res) => {
     try {
         let id = {_id: req.params.id}
         let todo = await req.body;
         let update = await Todo.findOneAndUpdate(id, todo, {new: true});
 
-        if (!update) return res.status(400).json({
-            success: false,
-            message: "Todo not updated",
-        });
-        return res.status(200).json({
-            success: true,
-            message: "Todo updated",
-            todo: update,
-        });
+         res.redirect("/")
     } catch (error) {
-        res.status(500).json({
-            success: false,
-            message: "Internal server error",
-            error: error.message,
-        });
+        res.redirect(`/todo/${id}`)
     };
 };
 

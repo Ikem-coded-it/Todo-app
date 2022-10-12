@@ -1,0 +1,9 @@
+<div class="new-todo-form">
+    <h2 class="page-header">Edit Todo</h2>
+    <div class="form-section">
+        <form class="edit-form" method="POST" action="/todo/<%= todo.id %>?_method=PUT" method="POST">
+            <%- include("./_form_fields.ejs", { todo: todo }) %> 
+            <button class="btn-primary">Edit</button>
+        </form>
+    </div>
+</div>
