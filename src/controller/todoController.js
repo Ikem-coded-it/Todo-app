@@ -2,32 +2,30 @@ const Todo = require('../model/todo');
 
 // render new todo page
 exports.newTodo = async (req, res) => {
-    res.render("todo/new", { todo: new Todo() })
+    res.render("todo/new", { todo: new Todo() });
 };
 
 
 // Add todo task
 exports.createTodo = async (req, res) => {
-    const todo = await new Todo({
-        title: req.body.title,
-        description: req.body.description,
-    })
+    const { title, description } = req.body;
+    const todo = await new Todo({ title, description });
 
     try {
-        const newTodo = await todo.save()
-        res.redirect(`/`)
-
+        const newTodo = await todo.save();
+        res.redirect(`/`);
     } catch (error) {
-        res.redirect("/")
+        res.redirect("/");
     }
 }
 
 
 // render todo edit page
 exports.editTodo = async(req, res) => {
-    const todo = await Todo.findById(req.params.id)
+    const { id } = req.params;
     try {
-        res.render("todo/edit", { todo: todo })
+        const todo = await Todo.findById(id);
+        res.render("todo/edit", { todo: todo });
     } catch (error) {
         console.log(error);
         res.redirect("/")
@@ -39,7 +37,7 @@ exports.editTodo = async(req, res) => {
 exports.updateTodo = async (req, res) => {
     try {
         let id = {_id: req.params.id}
-        let todo = await req.body;
+        let { todo } = req.body;
         let update = await Todo.findOneAndUpdate(id, todo, {new: true});
 
          res.redirect("/")
@@ -55,18 +53,18 @@ exports.deleteTodo = async (req, res) => {
         let id = {_id: req.params.id};
         let deleted = await Todo.findOneAndDelete(id);
 
-        res.redirect("/")
+        res.redirect("/");
     } catch (error) {
-        res.redirect('/')
+        res.redirect('/');
     }
 };
 
 
 // Retrieve all todo tasks
 exports.getAllTodos = async (req, res) => {
-    let searchOptions = {}
+    let searchOptions = {};
     if(req.query.title != null && req.query.title != '') {
-        searchOptions.title = new RegExp(req.query.title, 'i')
+        searchOptions.title = new RegExp(req.query.title, 'i');
     }
     
     try {
@@ -74,9 +72,9 @@ exports.getAllTodos = async (req, res) => {
         res.render("index", {
             todos: todos,
             searchOptions: req.query
-        }) 
+        });
     } catch (error) {
-        res.redirect('/')
+        res.redirect('/');
     }
 };
 
@@ -87,9 +85,7 @@ exports.getTodo = async (req, res) => {
         let id = {_id: req.params.id};
         let todo = await Todo.findOne(id);
          
-        res.render("todo/show", {
-            todo: todo
-        })
+        res.render("todo/show", { todo });
     } catch (error) {
         res.redirect('/')
     }
