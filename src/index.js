@@ -7,6 +7,7 @@ const methodOverride = require("method-override")
 const connect = require('./config/database');
 const indexRouter = require('./router/index');
 const todoRouter = require('./router/todo');
+require("dotenv").config()
 
  
 // configs
@@ -23,7 +24,7 @@ app.use(methodOverride("_method"));
 app.use('/', indexRouter)
 app.use('/todo', todoRouter)
 
-connect();
+connect(process.env.MONGO_URI);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
