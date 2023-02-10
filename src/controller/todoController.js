@@ -2,7 +2,7 @@ const Todo = require('../model/todo');
 
 // render new todo page
 exports.newTodo = async (req, res) => {
-    res.render("todo/new", { todo: new Todo() })
+    res.render("todo/new", { todo: new Todo() });
 };
 
 
@@ -24,9 +24,10 @@ exports.createTodo = async (req, res) => {
 
 // render todo edit page
 exports.editTodo = async(req, res) => {
-    const todo = await Todo.findById(req.params.id)
+    const { id } = req.params;
     try {
-        res.render("todo/edit", { todo: todo })
+        const todo = await Todo.findById(id);
+        res.render("todo/edit", { todo: todo });
     } catch (error) {
         errorHandler(req, res)
     }
@@ -51,7 +52,7 @@ exports.deleteTodo = async (req, res) => {
         let id = {_id: req.params.id};
         await Todo.findOneAndDelete(id);
 
-        res.redirect("/")
+        res.redirect("/");
     } catch (error) {
         errorHandler(req, res)
     }
@@ -59,9 +60,9 @@ exports.deleteTodo = async (req, res) => {
 
 // Retrieve all todo tasks
 exports.getAllTodos = async (req, res) => {
-    let searchOptions = {}
+    let searchOptions = {};
     if(req.query.title != null && req.query.title != '') {
-        searchOptions.title = new RegExp(req.query.title, 'i')
+        searchOptions.title = new RegExp(req.query.title, 'i');
     }
     
     try {
@@ -69,7 +70,7 @@ exports.getAllTodos = async (req, res) => {
         res.render("index", {
             todos: todos,
             searchOptions: req.query
-        }) 
+        });
     } catch (error) {
         errorHandler(req, res)
     }
