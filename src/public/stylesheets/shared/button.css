@@ -1,22 +1,23 @@
 @import 'variables.css';
 
 .btn-primary {
-    padding: 15px;
-    border-radius: 1rem;
+    padding: 9px;
+    border-radius: 10px;
     background-color: azure;
     color: var(--color-app-font);
-    font-size: 18px;
+    font-size: 15px;
     font-family: "Mogen", courier, san-serif;
     margin: 1rem;
+    box-shadow: 3px 3px 5px #888888;
+    max-width: fit-content;
 }
 
 .btn-danger {
-    display: inline;
-    padding: 15px;
+    padding: 9px;
     border-radius: 1rem;
     background-color: rgb(247, 3, 3);
     color: rgb(0, 0, 0);
-    font-size: 18px;
+    font-size: 15px;
     font-family: "Mogen", courier, san-serif;
 }
 
@@ -30,3 +31,7 @@
     cursor: pointer;
 }
 
+.add-todo-btn {
+    margin: 0;
+    border: 0.5px solid var(--color-app-font);
+}

@@ -23,7 +23,7 @@ app.use(methodOverride("_method"));
 app.use('/', indexRouter)
 app.use('/todo', todoRouter)
 
-connect();
+connect(process.env.MONGO_DB_LOCAL);
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

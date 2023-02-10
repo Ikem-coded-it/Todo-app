@@ -1,5 +1,13 @@
-<div class="todo-title">
-    <h2 class="page-header"><%= todo.title %></h2>
+<div>
+    <div class="show-container">
+        <%= todo.title %> 
+    </div>
+    <div class="date-time-container">
+        <div class="time-container"><%= date %></div>
+        <div class="time-container"><%= time %></div>
+    </div>
 </div>
-<a class="btn-primary" href="/todo/<%= todo.id %>/edit ">Edit</a>
-<div class="todo-description"><%= todo.description %></div>
+<div class="edit-desc-container">
+    <a class="btn-primary" href="/todo/<%= todo.id %>/edit ">Edit</a>
+    <div class="show-container desc-container"><%= todo.description %></div>
+</div>

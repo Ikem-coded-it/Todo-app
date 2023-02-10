@@ -7,10 +7,17 @@
     font-family: 'Mogen';
     font-size: 20px;
     color: hsl(96, 100%, 48%);
-    background-color: hsl(56, 100%, 38%);
+    background-color: hsl(60, 3%, 82%);
     margin: 0;
     padding: 1rem;
     box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .page-header {
@@ -20,6 +27,20 @@
     font-size: 50px;
     text-align: center;
 } 
+
+@media only screen and (min-width:
+320px) {
+    .show-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        overflow-wrap: break-word;
+        min-width: fit-content;
+        color: var(--color-app-font);
+    }
+}
 
 div a {
     display: inline;
@@ -32,19 +53,25 @@ a {
 
 .todo-section {
     text-align: center;
-    background-color: antiquewhite;
+    background-color: rgb(167, 163, 159);
     border: 1px solid var(--color-app-font);
-    border-radius: 1rem;
+    border-radius: 5px;
+    max-width: fit-content;
+    min-width: 300px;
 }
 
 .todo-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin: 10px;
-    padding-bottom: .5rem;
-    border-bottom: 2px solid black;
+    border-bottom: 0.5px solid black;
+    flex-wrap: wrap;
 }
 
 .todo-row li {
-    display: inline;
+    flex-grow: 1;
+
     list-style: none;
     color: var(--color-app-font);
     font-family: "Mogen", 'Times New Roman', sans-serif;
@@ -52,20 +79,44 @@ a {
     margin-bottom: 15px;
 }
 
-.todo-title {
-    background-color: bisque;
-    margin: 0 5rem;
-    border: 2px solid black;
-    border-radius: 1rem;
-    margin-bottom: 4rem;
+.show-container {
+    background-color: azure;
+    color: var(--color-app-font);
+    border: 0.5px solid var(--color-app-font);
+    border-radius: 5px;
+    margin-bottom: 3px;
+    padding: 5px;
+    text-align: center;
+    overflow-wrap: break-word;
+    max-width: 150px;
 }
 
-.todo-description {
-    background-color: bisque;
-    color: var(--color-app-font);
-    border: 2px solid black;
-    border-radius: 1rem;
-    margin: 0 3rem;
-    padding: 1.5rem;
-    text-align: center;
+.desc-container {
+    min-width: 290px;
+    max-width: 290px;
+}
+
+.error-message {
+    color: red;
+}
+
+.date-time-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 4px;
+    align-items: center;
+}
+
+.time-container {
+    font-size: small;
+    max-width: fit-content;
+    border: 0.5px solid var(--color-app-font);
+    background-color:  rgb(17, 32, 32);
+    overflow-wrap: break-word;
+}
+
+.edit-desc-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
 }

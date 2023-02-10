@@ -8,21 +8,21 @@
 }
 
 .form-section {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
     padding: 0;
     text-align: center;
     margin-bottom: 2rem;
-
 }
 
 .form-input {
     padding: 15px;
-    border: 2px solid var(--color-app-font);
-    border-radius: 1rem;
+    border: 0.5px solid var(--color-app-font);
     background-color: azure;
     color: var(--color-app-font);
     font-family: "Mogen";
     font-size: 15px;
+    margin-bottom: 5px;
 }
 
 .form-item {
