@@ -9,9 +9,33 @@
 <div class="todo-section">
     <% todos.forEach(todo => { %>
         <div class="todo-row">
-            <li><%= todo.title %></li>
-            <a class="btn-primary" href="/todo/<%= todo.id %>">View</a>
-            <%- include("./partials/deleteForm", {url: `/todo/${todo.id}`}) %>
+            <div class="title-container">
+                <li>   
+                    <% if (todo.title) { %>
+                        <% if (todo.title.length >= 18) { %>
+                            <% let charArray = todo.title.split('') %> 
+                            <% let shownTextArray = charArray.slice(0, 15) %> 
+                            <% let shownText = shownTextArray.join('') + ' . . .' %>
+                            <%= shownText %>
+                        <% } else { %>
+                            <%= todo.title %>
+                        <% } %> 
+                    <% } else { %>
+                        <% if (todo.description.length >= 18) { %>
+                            <% let charArray = todo.description.split('') %> 
+                            <% let shownTextArray = charArray.slice(0, 15) %> 
+                            <% let shownText = shownTextArray.join('') + ' . . .' %>
+                            <%= shownText %>
+                        <% } else { %>
+                            <%= todo.description %>
+                        <% } %>
+                    <% } %>       
+                </li>
+            </div>
+            <div class="view-delete-btn-container">
+                <a class="btn-primary" href="/todo/<%= todo.id %>">View</a>
+                <%- include("./partials/deleteForm", {url: `/todo/${todo.id}`}) %>
+            </div>
         </div>
     <% }) %>
 </div>

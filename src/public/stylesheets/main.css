@@ -5,7 +5,7 @@
 
 :root {
     font-family: 'Mogen';
-    font-size: 20px;
+    font-size: 15px;
     color: hsl(96, 100%, 48%);
     background-color: hsl(60, 3%, 82%);
     margin: 0;
@@ -66,17 +66,26 @@ a {
     align-items: center;
     margin: 10px;
     border-bottom: 0.5px solid black;
-    flex-wrap: wrap;
 }
 
 .todo-row li {
     flex-grow: 1;
-
     list-style: none;
     color: var(--color-app-font);
     font-family: "Mogen", 'Times New Roman', sans-serif;
-    font-size: 30px;
-    margin-bottom: 15px;
+    font-size: 15px;
+}
+
+.title-container {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.view-delete-btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
 }
 
 .show-container {

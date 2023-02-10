@@ -81,10 +81,10 @@ exports.getTodo = async (req, res) => {
     try {
         let id = {_id: req.params.id};
         let todo = await Todo.findOne(id);
-         
-        const date = todo.createdAt.toLocaleDateString()
-        const time = todo.createdAt.toLocaleTimeString()
-
+  
+        const today = new Date()
+        const date = today.toLocaleDateString()
+        const time = today.toLocaleTimeString()
         res.render("todo/show", {
             todo: todo,
             date: date,

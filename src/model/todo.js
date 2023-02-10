@@ -2,15 +2,8 @@ const mongoose = require('mongoose');
 
 const todoSchema = mongoose.Schema(
     {
-        title: {
-            type: String,
-            required: true,
-            minlength: 1,
-            maxlength: 20,
-        },
-        description: {
-            type: String
-        }
+        title: String,
+        description: String
     }, 
     { timestamps: true }
 );
