@@ -64,12 +64,21 @@ exports.getAllTodos = async (req, res) => {
     if(req.query.title != null && req.query.title != '') {
         searchOptions.title = new RegExp(req.query.title, 'i');
     }
+
+    let message
+    const todos = await Todo.find({})
+    if (!todos[0]) {
+        message = "Add some tasks"
+    } else {
+        message = "Get stuff done"
+    }
     
     try {
         let todos = await Todo.find(searchOptions);
         res.render("index", {
             todos: todos,
-            searchOptions: req.query
+            searchOptions: req.query,
+            message: message
         });
     } catch (error) {
         errorHandler(req, res)
